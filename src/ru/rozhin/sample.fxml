@@ -1,15 +1,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Text?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-
+<?import javafx.scene.layout.*?>
 <GridPane fx:controller="ru.rozhin.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" hgap="20" vgap="30">
     <padding>
         <Insets top="25" right="25" bottom="10" left="25"/>
     </padding>
-    <Text text="Welcome" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
     <Label text="Input: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
     <TextArea fx:id="textInput" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
     <Button fx:id="submit" text="Анализ" GridPane.columnIndex="0" GridPane.rowIndex="3" onAction="#analyze"/>
@@ -17,10 +14,14 @@
     <TableView fx:id="tableView" GridPane.columnIndex="2" GridPane.rowIndex="1">
         <columns>
             <TableColumn text="Слово">
-                <cellValueFactory><PropertyValueFactory property="word"/></cellValueFactory>
+                <cellValueFactory>
+                    <PropertyValueFactory property="word"/>
+                </cellValueFactory>
             </TableColumn>
             <TableColumn text="Количество">
-                <cellValueFactory><PropertyValueFactory property="count"/></cellValueFactory>
+                <cellValueFactory>
+                    <PropertyValueFactory property="count"/>
+                </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>
