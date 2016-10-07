@@ -28,7 +28,8 @@
         </columns>
     </TableView>
 
-    <ImageView fx:id="userPhoto" fitWidth="100" fitHeight="100" GridPane.rowIndex="4" GridPane.columnIndex="1">
+    <ImageView fx:id="userPhoto" fitWidth="100" fitHeight="100" GridPane.rowIndex="4" GridPane.columnIndex="1"
+               onDragDropped="#photoDragged" onDragOver="#photoDraggedOver">
         <image>
             <Image url="@/resources/imgs/user.jpg"/>
         </image>
