@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import ru.rozhin.model.WordData;
 import ru.rozhin.text.WordsCounter;
 
@@ -19,6 +20,11 @@ public class Controller {
 
     @FXML
     private TableView tableView;
+
+    @FXML
+    private ImageView userPhoto;
+
+
 
     @FXML
     protected void analyze(ActionEvent event) {

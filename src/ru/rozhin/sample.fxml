@@ -1,6 +1,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <GridPane fx:controller="ru.rozhin.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" hgap="20" vgap="30">
@@ -9,7 +11,7 @@
     </padding>
     <Label text="Input: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
     <TextArea fx:id="textInput" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-    <Button fx:id="submit" text="Анализ" GridPane.columnIndex="0" GridPane.rowIndex="3" onAction="#analyze"/>
+    <Button fx:id="submit" text="Анализ" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#analyze"/>
 
     <TableView fx:id="tableView" GridPane.columnIndex="2" GridPane.rowIndex="1">
         <columns>
@@ -25,4 +27,12 @@
             </TableColumn>
         </columns>
     </TableView>
+
+    <ImageView fx:id="userPhoto" fitWidth="100" fitHeight="100" GridPane.rowIndex="4" GridPane.columnIndex="1">
+        <image>
+            <Image url="@/resources/imgs/user.jpg"/>
+        </image>
+    </ImageView>
+    <TextField fx:id="userName" GridPane.rowIndex="4" GridPane.columnIndex="2"></TextField>
+    <Button fx:id="addUser" text="Добавить пользователя" GridPane.rowIndex="5" GridPane.columnIndex="1"></Button>
 </GridPane>
