@@ -1,10 +1,11 @@
 package ru.rozhin.model;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class WordData {
     private final SimpleStringProperty word = new SimpleStringProperty("");
-    private final SimpleStringProperty count = new SimpleStringProperty("");
+    private final SimpleIntegerProperty count = new SimpleIntegerProperty();
 
     public WordData(String word, Integer count) {
         setWord(word);
@@ -16,14 +17,14 @@ public class WordData {
     }
 
     public void setCount(Integer value) {
-        count.set(value.toString());
+        count.set(value);
     }
 
     public String getWord() {
         return word.get();
     }
 
-    public String getCount() {
+    public Integer getCount() {
         return count.get();
     }
 }
