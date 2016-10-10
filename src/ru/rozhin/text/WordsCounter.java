@@ -7,7 +7,7 @@ public class WordsCounter {
         HashMap<String, Integer> result = new HashMap<>();
 
         String word = "";
-        String letter;
+        String letter = "";
 
         int n = input.length();
         for (int i = 0; i < n; i++) {
@@ -15,14 +15,20 @@ public class WordsCounter {
             if (!isDelimeter(letter)) {
                 word = word.concat(letter);
             } else {
-                if (result.containsKey(word))
-                    result.put(word, result.get(word) + 1);
-                else
-                    result.put(word, 1);
+                addToDictionary(word, result);
                 word = "";
             }
         }
+        if (!isDelimeter(letter))
+            addToDictionary(word, result);
         return result;
+    }
+
+    private static void addToDictionary(String word, HashMap<String, Integer> result) {
+        if (result.containsKey(word))
+            result.put(word, result.get(word) + 1);
+        else
+            result.put(word, 1);
     }
 
     private final static String[] delimiters = {",", " ", ".", ";", "-", "?", "!"};
