@@ -25,13 +25,15 @@ public class WordsCounter {
     }
 
     private static void addToDictionary(String word, HashMap<String, Integer> result) {
+        if (word.isEmpty()) return;
+
         if (result.containsKey(word))
             result.put(word, result.get(word) + 1);
         else
             result.put(word, 1);
     }
 
-    private final static String[] delimiters = {",", " ", ".", ";", "-", "?", "!"};
+    private final static String[] delimiters = {",", " ", ".", ";", "-", "?", "!", "\n", "\t", "\r", "'", "\"", "(", ")", "[", "]", "<", ">", ":"};
 
     private static boolean isDelimeter(String symbol) {
         int n = delimiters.length;
