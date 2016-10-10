@@ -22,6 +22,7 @@ public class Words {
                 wordStr = wordStr.concat(letter);
             } else {
                 addToVector(wordStr, words);
+                wordStr = "";
             }
         }
         if (!isDelimeter(letter))
