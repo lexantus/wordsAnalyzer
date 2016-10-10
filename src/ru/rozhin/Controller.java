@@ -12,15 +12,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import ru.rozhin.model.Word;
 import ru.rozhin.model.WordData;
-import ru.rozhin.text.WordsCounter;
+import ru.rozhin.text.Words;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.Vector;
 
 public class Controller {
     @FXML
@@ -67,15 +66,13 @@ public class Controller {
 
     @FXML
     protected void analyze(ActionEvent event) {
-        HashMap<String, Integer> dictionary = WordsCounter.getDictionaryFromSpeech(textInput.getText());
-
+        Vector<Word> words = Words.getWordChain(textInput.getText());
         ObservableList<WordData> data = FXCollections.observableArrayList();
-        Iterator it = dictionary.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry) it.next();
-            System.out.println(pair.getKey() + " = " + pair.getValue());
-            data.add(new WordData((String) pair.getKey(), (Integer) pair.getValue()));
-        }
+
+        int n = words.size();
+        for (int i = 0; i < n; i++)
+            data.add(new WordData(words.get(i).word, words.get(i).count));
+
         tableView.setItems(data);
     }
 }
