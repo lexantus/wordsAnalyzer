@@ -23,5 +23,5 @@ app.post('/api/photo', function (req, res) {
 });
 
 app.listen(8000, function () {
-    console.log("Working on port 3000");
+    console.log("Working on port 8000");
 });
